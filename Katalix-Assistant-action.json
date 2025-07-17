@@ -1,0 +1,3464 @@
+{
+  "name": "Katalix Assistant-action",
+  "type": "action",
+  "valid": true,
+  "status": "Available",
+  "created": "2025-07-17T04:50:44.044Z",
+  "updated": "2025-07-17T04:59:40.612Z",
+  "language": "en",
+  "skill_id": "0c63d764-f5b0-4bf2-b1a8-d0feb00ae044",
+  "workspace": {
+    "actions": [
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_509",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "At **Katalix Solutions**, our **Enterprise Product Engineering** services help businesses design, develop, and scale complex software products tailored to real-world needs.\n\n<br />\n\n\n\nHere's what we offer:\n\n• **End-to-End Product Development** – From idea to deployment and beyond.\n• **Custom Enterprise Applications** – Built for scale, security, and performance."
+                          },
+                          {
+                            "scalar": "\n• **Agile Engineering Teams** – Rapid prototyping, sprints, and iterative delivery.\n• **Scalable Architecture Design** – Cloud-native and microservices-based solutions.\n• **DevOps & CI/CD Enablement** – Streamlined releases with automation and monitoring.\n• **Post-deployment Support & Optimization** – Ensuring long-term success and stability."
+                          },
+                          {
+                            "scalar": "\n\n<br />\n\n\n\nWhether you're building a new SaaS platform, internal business system, or upgrading legacy apps — we engineer products that drive measurable outcomes.\n\n<br />\n\n\n\nDo you want to explore other services?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_509",
+            "next_step": "step_213"
+          },
+          {
+            "step": "step_213",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_45275",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_213_result_1"
+              }
+            },
+            "variable": "step_213",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_509"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_243"
+          },
+          {
+            "step": "step_243",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_20414",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_243_result_1"
+              }
+            },
+            "variable": "step_243",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_509"
+                },
+                {
+                  "scalar": "no"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "product engineering services",
+        "action": "action_15325",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_15325_intent_1784"
+        },
+        "variables": [
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_213",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_213_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_243",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_243_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "At **Katalix Solutions**, our **Enterprise Product Engineering**",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_509",
+            "data_type": "yes_no"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_47088",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_735",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Yes, we offer comprehensive AI and ML solutions tailored to modern business needs. Our services include:\n\n• Predictive analytics and model development\n• Custom machine learning pipelines\n• Generative AI tools for content automation\n• Natural Language Processing (NLP) and chatbots\n• IBM Watsonx-based AI integration\n\nWe help enterprises harness data to automate workflows, improve decision-making,"
+                          },
+                          {
+                            "scalar": " and unlock new business opportunities.\n\nWould you like to see a sample project or learn about our GenAI tools?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_2896",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_735",
+            "next_step": "step_244"
+          },
+          {
+            "step": "step_244",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "🚀 Great! Here's a quick overview of one of our AI-driven projects:\n\n🧠 **Client Use Case**:\nWe helped a leading retail company implement **predictive analytics** to forecast demand and optimize inventory. Using **Watsonx.ai’s AutoAI** and **custom ML pipelines**, the system improved forecasting accuracy by 30% and reduced stock-outs by 20%."
+                          },
+                          {
+                            "scalar": "\n\n🤖 **Generative AI Integration**:\nWe also deployed **Watsonx Prompt Lab** to generate dynamic product descriptions using LLMs — saving 100+ hours of manual work monthly.\n\nFor more information contact us."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_244",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_735"
+                },
+                {
+                  "value": "Yes",
+                  "from_entity": "entity_2896"
+                }
+              ]
+            },
+            "next_step": "step_155"
+          },
+          {
+            "step": "step_155",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Do you want to explore other services?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_28421",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_155",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_735"
+                },
+                {
+                  "value": "No",
+                  "from_entity": "entity_2896"
+                }
+              ]
+            },
+            "next_step": "step_495"
+          },
+          {
+            "step": "step_495",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_45275",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_495_result_1"
+              }
+            },
+            "variable": "step_495",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_155"
+                },
+                {
+                  "value": "Yes",
+                  "from_entity": "entity_28421"
+                }
+              ]
+            },
+            "next_step": "step_415"
+          },
+          {
+            "step": "step_415",
+            "output": {
+              "generic": []
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_20414",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_415_result_1"
+              }
+            },
+            "variable": "step_415",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_155"
+                },
+                {
+                  "value": "No",
+                  "from_entity": "entity_28421"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Tell me about your AI services",
+        "action": "action_18135",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_18135_intent_5008"
+        },
+        "variables": [
+          {
+            "title": "Do you want to explore other services?",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_155",
+            "data_type": "any"
+          },
+          {
+            "title": "🚀 Great! Here's a quick overview of one of our AI-driven projec",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_244",
+            "data_type": "any"
+          },
+          {
+            "title": "",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_415",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_415_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_495",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_495_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Yes, we offer comprehensive AI and ML solutions tailored to mode",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_735",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_45275",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_843",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "No problem at all! 😊 I'm here whenever you’re ready. You can ask about our services, job openings, or contact info anytime."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_843"
+          }
+        ],
+        "title": "No services this time",
+        "action": "action_20414",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_20414_intent_17054"
+        },
+        "variables": [
+          {
+            "title": "No problem at all! 😊 I'm here whenever you’re ready. You can as",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_843",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_44560",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_986",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "📞 For any inquiries, feel free to reach us at **+91 79899 56424** or email us at [**info@katalixsolutions.com**]()."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_986"
+          }
+        ],
+        "title": "Contact details",
+        "action": "action_21402",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_21402_intent_39389"
+        },
+        "variables": [
+          {
+            "title": "📞 For any inquiries, feel free to reach us at **+91 79899 56424",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_986",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_7890",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_548",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Hello! 👋 Welcome to Katalix Solutions. How can I assist you today?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_548"
+          }
+        ],
+        "title": "Greetings",
+        "action": "action_22957",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_22957_intent_6289"
+        },
+        "variables": [
+          {
+            "title": "Hello! 👋 Welcome to Katalix Solutions. How can I assist you tod",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_548",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "fallback",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_739",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "**Timeline**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "title": "",
+                  "source": "https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-6ad0-622f-9719-8ca7d4e21202/raw?se=2025-07-17T05%3A57%3A59Z&sp=r&sv=2024-08-04&sr=b&scid=6701200c-5965-5040-b20f-600652d5d71c&skoid=864daabb-d06a-46b3-a747-d35075313a83&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-17T04%3A22%3A39Z&ske=2025-07-18T04%3A22%3A39Z&sks=b&skv=2024-08-04&sig=%2B85ZsunVaTlit0HBb3trQm0uEvdj/Mrs0DKN3fh3%2BpA%3D",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                },
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "**IBM Authorised Business Partner - Katalix Solutions.**"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "title": "",
+                  "source": "https://static.wixstatic.com/media/892d2b_602f6f80b5bb43b78034433b38f08667~mv2.jpg/v1/fill/w_498,h_296,al_c,lg_1,q_80,enc_avif,quality_auto/logo%202.jpg",
+                  "alt_text": "",
+                  "description": "",
+                  "response_type": "image"
+                },
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Proud to Announce Our Official Partnership with IBM. We are excited to share that Katalix Solutions has become an official partner of IBM."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_739"
+          }
+        ],
+        "title": "Our Journey Map",
+        "action": "action_24855",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_24855_intent_22566"
+        },
+        "variables": [
+          {
+            "title": "**Timeline**",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_739",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_37991",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_190",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "**Katalix Solutions** empowers businesses through **digital transformation** by reimagining workflows, systems, and customer experiences with cutting-edge technologies.\n\nOur digital transformation offerings include:\n\n<br />\n\n\n\n• **Legacy System Modernization**\n• **Cloud Migration & Integration**\n• **Business Process Automation (BPA)**\n• **Low-code/No-code Solutions**\n• **AI & Data-"
+                          },
+                          {
+                            "scalar": "driven Decision Systems**\n• **Customer Experience (CX) Optimization**\n• **Agile Product Development & DevOps Enablement**\n\n<br />\n\n\n\n🚀 We help you unlock new levels of agility, scalability, and innovation by aligning tech with business goals.\n\nDo you want to explore other services?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_190",
+            "next_step": "step_393"
+          },
+          {
+            "step": "step_393",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_45275",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_393_result_1"
+              }
+            },
+            "variable": "step_393",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_190"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_338"
+          },
+          {
+            "step": "step_338",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_20414",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_338_result_1"
+              }
+            },
+            "variable": "step_338",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_190"
+                },
+                {
+                  "scalar": "no"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "digital_transformation_services",
+        "action": "action_3309",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_3309_intent_40025"
+        },
+        "variables": [
+          {
+            "title": "**Katalix Solutions** empowers businesses through **digital tran",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_190",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_338",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_338_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_393",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_393_result_1",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_18135",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_315",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Welcome to Katlix Solutions – Your Strategic Partner in SaaS Brilliance and Market Success!\n\n<br />\n\n\n\nAt Katlix, we specialize in empowering SaaS providers and tech companies to elevate their products to unprecedented heights. Our expert team is dedicated to enhancing your solutions through innovative strategies,"
+                          },
+                          {
+                            "scalar": " ensuring they not only meet industry standards but also stand out in a competitive market."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_315"
+          }
+        ],
+        "title": "About Katalix",
+        "action": "action_34978",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_34978_intent_43783"
+        },
+        "variables": [
+          {
+            "title": "Welcome to Katlix Solutions – Your Strategic Partner in SaaS Bri",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_315",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_22957",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_358",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Elevate your SaaS and tech offerings with Katlix Solutions – where every enhancement is a step towards market domination and product brilliance. Let's collaborate and chart a course for your success together!\n\n<br />\n\n\n\nWe specialize in IBM’s enterprise-grade platforms like Watsonx, Instana, Cognos, and MaaS360 — and bring certified expertise to every project.\"\n\n\n\"Katalix is your go-"
+                          },
+                          {
+                            "scalar": "to partner for AI-driven observability and intelligent automation.\""
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_358"
+          }
+        ],
+        "title": "Why Katalix Solutions?",
+        "action": "action_37991",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_37991_intent_13052"
+        },
+        "variables": [
+          {
+            "title": "Elevate your SaaS and tech offerings with Katlix Solutions – whe",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_358",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_34978",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_799",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "At **Katalix Solutions**, we provide **IT Staff Augmentation services** to help organizations scale their teams quickly with top-tier talent — without long-term commitments.\n\n<br />\n\n\n\nOur offerings include:\n\n• **On-demand Tech Talent** – Hire skilled developers, data engineers, AI/ML experts, and cloud architects.\n• **Flexible Engagement Models** – Short-term, long-term, or project-"
+                          },
+                          {
+                            "scalar": "based staffing.\n• **Pre-vetted Resources** – Experts selected through a rigorous screening and technical evaluation process.\n• **Domain-Specific Talent** – Specialized in AI/ML, Full Stack Development, Cloud, DevOps, and more.\n• **Seamless Integration** – Our teams align with your tools, timelines, and goals.\n\n<br />\n\n\n\nWhether you're expanding an internal team or launching a new initiative,"
+                          },
+                          {
+                            "scalar": " we deliver the right talent—fast.\n\n\nDo you want to explore other services?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_799",
+            "next_step": "step_257"
+          },
+          {
+            "step": "step_257",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_45275",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_257_result_1"
+              }
+            },
+            "variable": "step_257",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_799"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_923"
+          },
+          {
+            "step": "step_923",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_20414",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_923_result_1"
+              }
+            },
+            "variable": "step_923",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_799"
+                },
+                {
+                  "scalar": "no"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "staffing services",
+        "action": "action_44560",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_44560_intent_14495"
+        },
+        "variables": [
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_257",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_257_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "At **Katalix Solutions**, we provide **IT Staff Augmentation ser",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_799",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_923",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_923_result_1",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_15325",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_834",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Katalix Solutions offers a wide range of services including:\n\n<br />\n\n\n\n• AI/ML Consulting\n• Digital Transformation\n• Cloud Solutions\n• IT Staff Augmentation\n• Custom Software Development\n• Enterprise Product Engineering\n\nLet me know if you’d like more information on any specific service."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "AI/ML Consulting",
+                      "value": {
+                        "input": {
+                          "text": "AI/ML Consulting"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Digital Transformation",
+                      "value": {
+                        "input": {
+                          "text": "Digital Transformation"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Cloud Solutions",
+                      "value": {
+                        "input": {
+                          "text": "Cloud Solutions"
+                        }
+                      }
+                    },
+                    {
+                      "label": "IT Staff Augmentation",
+                      "value": {
+                        "input": {
+                          "text": "IT Staff Augmentation"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Enterprise Product Engineering",
+                      "value": {
+                        "input": {
+                          "text": "Enterprise Product Engineering"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Not this time",
+                      "value": {
+                        "input": {
+                          "text": "Not this time"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_16840",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_834",
+            "next_step": "step_820"
+          },
+          {
+            "step": "step_820",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_18135",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_820_result_1"
+              }
+            },
+            "variable": "step_820",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_834"
+                },
+                {
+                  "value": "AI/ML Consulting",
+                  "from_entity": "entity_16840"
+                }
+              ]
+            },
+            "next_step": "step_339"
+          },
+          {
+            "step": "step_339",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_3309",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_339_result_1"
+              }
+            },
+            "variable": "step_339",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_834"
+                },
+                {
+                  "value": "Digital Transformation",
+                  "from_entity": "entity_16840"
+                }
+              ]
+            },
+            "next_step": "step_999"
+          },
+          {
+            "step": "step_999",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_47088",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_999_result_1"
+              }
+            },
+            "variable": "step_999",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_834"
+                },
+                {
+                  "value": "Cloud Solutions",
+                  "from_entity": "entity_16840"
+                }
+              ]
+            },
+            "next_step": "step_529"
+          },
+          {
+            "step": "step_529",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_44560",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_529_result_1"
+              }
+            },
+            "variable": "step_529",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_834"
+                },
+                {
+                  "value": "IT Staff Augmentation",
+                  "from_entity": "entity_16840"
+                }
+              ]
+            },
+            "next_step": "step_847"
+          },
+          {
+            "step": "step_847",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_15325",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_847_result_1"
+              }
+            },
+            "variable": "step_847",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_834"
+                },
+                {
+                  "value": "Enterprise Product Engineering",
+                  "from_entity": "entity_16840"
+                }
+              ]
+            },
+            "next_step": "step_315"
+          },
+          {
+            "step": "step_315",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "No problem at all! 😊 I'm here whenever you’re ready. You can ask about our services, job openings, or contact info anytime."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_315",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_834"
+                },
+                {
+                  "value": "Not this time",
+                  "from_entity": "entity_16840"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "About Services",
+        "action": "action_45275",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_45275_intent_20473"
+        },
+        "variables": [
+          {
+            "title": "No problem at all! 😊 I'm here whenever you’re ready. You can as",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_315",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_339",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_339_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_529",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_529_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_820",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_820_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Katalix Solutions offers a wide range of services including: <br",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_834",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_847",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_847_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_999",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_999_result_1",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_24855",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_288",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "At **Katalix Solutions**, we offer **end-to-end cloud solutions** to help businesses modernize, scale, and innovate faster.\n\n<br />\n\n\n\nOur cloud offerings include:\n\n• **Cloud Consulting & Strategy**\n• **Cloud Migration & Modernization**\n• **Cloud-Native Application Development**\n• **Multi-cloud Architecture & Deployment**\n• **DevOps, CI/CD Pipelines, and Automation**\n• **Cloud Security,"
+                          },
+                          {
+                            "scalar": " Compliance & Governance**\n• **Integration with IBM Cloud, AWS, Azure & Google Cloud**\n\n<br />\n\n\n\n🔧 Whether you're migrating legacy systems or building new cloud-native apps, we guide you through a secure and scalable transformation.\n\nDo you want to explore other services?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I'm sorry, I did not catch that, please restate your response."
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3,
+              "response_collection_behavior": "always_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_288",
+            "next_step": "step_700"
+          },
+          {
+            "step": "step_700",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_45275",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_700_result_1"
+              }
+            },
+            "variable": "step_700",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_288"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_850"
+          },
+          {
+            "step": "step_850",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_20414",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_850_result_1"
+              }
+            },
+            "variable": "step_850",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_288"
+                },
+                {
+                  "scalar": "no"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "cloud solutions",
+        "action": "action_47088",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_47088_intent_30066"
+        },
+        "variables": [
+          {
+            "title": "At **Katalix Solutions**, we offer **end-to-end cloud solutions*",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_288",
+            "data_type": "yes_no"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_700",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_700_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_850",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_850_result_1",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_3309",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_639",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Katalix Solutions is led by a dynamic and visionary leadership team focused on innovation, client success, and excellence in AI and application monitoring.\nOur management brings years of expertise in enterprise solutions, digital transformation, and cloud-based technologies like IBM Watsonx, Instana, Cognos, and more."
+                          },
+                          {
+                            "scalar": "\n\n\nWould you like to know about:\n1️⃣ Founders & Leadership Team\n2️⃣ Company Mission & Vision\n3️⃣ Strategic Partners & Alliances\n\n<br />\n\n\n\nPlease choose an option"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential",
+                  "repeat_on_reprompt": false
+                },
+                {
+                  "options": [
+                    {
+                      "label": "1",
+                      "value": {
+                        "input": {
+                          "text": "1"
+                        }
+                      }
+                    },
+                    {
+                      "label": "2",
+                      "value": {
+                        "input": {
+                          "text": "2"
+                        }
+                      }
+                    },
+                    {
+                      "label": "3",
+                      "value": {
+                        "input": {
+                          "text": "3"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Not this time",
+                      "value": {
+                        "input": {
+                          "text": "Not this time"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text_expression": {
+                            "concat": [
+                              {
+                                "scalar": "I didn't catch that. Select a valid option:"
+                              }
+                            ]
+                          }
+                        }
+                      ],
+                      "response_type": "text",
+                      "selection_policy": "incremental"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_6458",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_639",
+            "next_step": "step_511"
+          },
+          {
+            "step": "step_511",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Katalix Solutions is guided by strong leadership focused on innovation, digital transformation, and enterprise excellence.\n\n**Mr. Nazeer Ahamed** – *Founder & CEO*\n\n\nWith a visionary mindset and deep industry expertise, Mr. Nazeer Ahamed leads the company towards delivering cutting-edge solutions in AI, application monitoring, and digital ecosystems."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_511",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_639"
+                },
+                {
+                  "value": "1",
+                  "from_entity": "entity_6458"
+                }
+              ]
+            },
+            "next_step": "step_525"
+          },
+          {
+            "step": "step_525",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_34978",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_525_result_1"
+              }
+            },
+            "variable": "step_525",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_639"
+                },
+                {
+                  "value": "2",
+                  "from_entity": "entity_6458"
+                }
+              ]
+            },
+            "next_step": "step_441"
+          },
+          {
+            "step": "step_441",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_24855",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_441_result_1"
+              }
+            },
+            "variable": "step_441",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_639"
+                },
+                {
+                  "value": "3",
+                  "from_entity": "entity_6458"
+                }
+              ]
+            },
+            "next_step": "step_707"
+          },
+          {
+            "step": "step_707",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_20414",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_707_result_1"
+              }
+            },
+            "variable": "step_707",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_639"
+                },
+                {
+                  "value": "Not this time",
+                  "from_entity": "entity_6458"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Management Details",
+        "action": "action_7890",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_7890_intent_47399"
+        },
+        "variables": [
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_441",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_441_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Katalix Solutions is guided by strong leadership focused on inno",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_511",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_525",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_525_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Katalix Solutions is led by a dynamic and visionary leadership t",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_639",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_707",
+            "data_type": "any"
+          },
+          {
+            "privacy": {
+              "enabled": false
+            },
+            "variable": "step_707_result_1",
+            "data_type": "any"
+          }
+        ],
+        "launch_mode": "learning",
+        "next_action": "action_20414",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true,
+          "never_return": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. Please rephrase your question."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001",
+            "condition": {
+              "lte": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action_and_end",
+              "invoke_action": {
+                "action": "fallback",
+                "policy": "default",
+                "parameters": null,
+                "result_variable": "step_002_result_1"
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "gt": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            }
+          }
+        ],
+        "title": "No matches",
+        "action": "anything_else",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "anything_else"
+        },
+        "variables": [
+          {
+            "title": "I am afraid I do not understand what you are asking, please re-p",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002_result_1",
+            "data_type": "any"
+          }
+        ],
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "digression_failure",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't confirm if you wanted to return to previous topic, let me connect to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "digression_failure",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Failed to confirm topic return"
+                }
+              ]
+            },
+            "next_step": "step_001"
+          },
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. I can connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_001",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Step validation failed"
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't assist you. I will connect you to an agent right away."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Agent requested"
+                }
+              ]
+            },
+            "next_step": "step_003"
+          },
+          {
+            "step": "step_003",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I am afraid I do not understand what you are asking, let me connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_003",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "No action matches"
+                }
+              ]
+            },
+            "next_step": "step_004"
+          },
+          {
+            "step": "step_004",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_004",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Danger word detected"
+                }
+              ]
+            },
+            "next_step": "step_005"
+          },
+          {
+            "step": "step_005",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "It seems this conversation would be best managed by a human agent. Let me connect you to one of our agents."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_005",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Profanity detected"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Fallback",
+        "action": "fallback",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "fallback_connect_to_agent"
+        },
+        "variables": [
+          {
+            "title": "Topic return failed",
+            "variable": "digression_failure",
+            "data_type": "any"
+          },
+          {
+            "title": "I'm afraid I don't understand. I can connect you to an agent.",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry I couldn't assist you. I will connect you to an agent righ",
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "title": "I am afraid I do not understand what you are asking, let me conn",
+            "variable": "step_003",
+            "data_type": "any"
+          },
+          {
+            "title": "It seems this conversation would be best managed",
+            "variable": "step_004",
+            "data_type": "any"
+          },
+          {
+            "title": "Profanity - It seems this conversation",
+            "variable": "step_005",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "run_always",
+        "disambiguation_opt_out": true
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "danger_word_detected",
+            "title": "Connect to agent",
+            "handlers": [],
+            "resolver": {
+              "type": "fallback"
+            },
+            "variable": "danger_word_detected_variable",
+            "condition": {
+              "entity": "danger_words"
+            },
+            "next_step": "profanity_detected"
+          },
+          {
+            "step": "profanity_detected",
+            "title": "Show warning",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Please use appropriate language when interacting with the assistant."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "max_hits",
+                "handler": "max_hits_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "max_hits": 2,
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "profanity_detected_variable",
+            "condition": {
+              "entity": "profane_words"
+            }
+          }
+        ],
+        "title": "Trigger word detected",
+        "action": "run_always",
+        "boosts": [],
+        "handlers": [],
+        "variables": [
+          {
+            "title": "Profanity detected",
+            "variable": "danger_word_detected_variable",
+            "data_type": "any"
+          },
+          {
+            "title": "Profane word detected",
+            "variable": "profanity_detected_variable",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "anything_else"
+      },
+      {
+        "type": "standard",
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Welcome, how can I assist you?"
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001"
+          }
+        ],
+        "title": "Greet customer",
+        "action": "welcome",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "welcome"
+        },
+        "variables": [
+          {
+            "variable": "step_001",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_21402",
+        "disambiguation_opt_out": true
+      }
+    ],
+    "intents": [
+      {
+        "intent": "action_15325_intent_1784",
+        "examples": [
+          {
+            "text": "Custom enterprise applications"
+          },
+          {
+            "text": "Do you build enterprise software?"
+          },
+          {
+            "text": "End-to-end product development"
+          },
+          {
+            "text": "Engineering scalable products"
+          },
+          {
+            "text": "Enterprise product lifecycle"
+          },
+          {
+            "text": "Product development services"
+          },
+          {
+            "text": "product engineering services"
+          },
+          {
+            "text": "Product innovation"
+          },
+          {
+            "text": "Software engineering at Katalix"
+          },
+          {
+            "text": "Tell me about your product engineering services"
+          },
+          {
+            "text": "What is enterprise product engineering?"
+          }
+        ]
+      },
+      {
+        "intent": "action_18135_intent_5008",
+        "examples": [
+          {
+            "text": "AI and ML services at Katalix"
+          },
+          {
+            "text": "AI/ML consulting"
+          },
+          {
+            "text": "Do you offer artificial intelligence solutions?"
+          },
+          {
+            "text": "Do you provide AI solutions?"
+          },
+          {
+            "text": "Do you work in machine learning?"
+          },
+          {
+            "text": "How do you use machine learning?"
+          },
+          {
+            "text": "I’m interested in AI or ML"
+          },
+          {
+            "text": "Tell me about your AI services"
+          },
+          {
+            "text": "What AI products do you offer?"
+          },
+          {
+            "text": "What are your AI/ML offerings?"
+          },
+          {
+            "text": "What can you do with AI?"
+          }
+        ]
+      },
+      {
+        "intent": "action_20414_intent_17054",
+        "examples": [
+          {
+            "text": "No services this time"
+          }
+        ]
+      },
+      {
+        "intent": "action_21402_intent_39389",
+        "examples": [
+          {
+            "text": "Contact details"
+          },
+          {
+            "text": "Contact me"
+          },
+          {
+            "text": "How to contact you"
+          },
+          {
+            "text": "I need to contact you"
+          }
+        ]
+      },
+      {
+        "intent": "action_22957_intent_6289",
+        "examples": [
+          {
+            "text": "Good afternoon!"
+          },
+          {
+            "text": "Good evening!"
+          },
+          {
+            "text": "Good morning!"
+          },
+          {
+            "text": "Greetings"
+          },
+          {
+            "text": "Hello"
+          },
+          {
+            "text": "Hi"
+          },
+          {
+            "text": "I need one help"
+          }
+        ]
+      },
+      {
+        "intent": "action_24855_intent_22566",
+        "examples": [
+          {
+            "text": "Achievements"
+          },
+          {
+            "text": "Any awards or certifications?"
+          },
+          {
+            "text": "Milestones"
+          },
+          {
+            "text": "Our Journey Map"
+          },
+          {
+            "text": "Share some company highlights"
+          },
+          {
+            "text": "Timeline"
+          },
+          {
+            "text": "What are your recognitions?"
+          },
+          {
+            "text": "What has Katalix accomplished?"
+          }
+        ]
+      },
+      {
+        "intent": "action_3309_intent_40025",
+        "examples": [
+          {
+            "text": "Cloud migration or automation"
+          },
+          {
+            "text": "Digital solutions you offer"
+          },
+          {
+            "text": "Digital transformation at Katalix"
+          },
+          {
+            "text": "digital_transformation_services"
+          },
+          {
+            "text": "Do you provide digital transformation?"
+          },
+          {
+            "text": "Enterprise transformation services"
+          },
+          {
+            "text": "Help with digital strategy"
+          },
+          {
+            "text": "Legacy system upgrade"
+          },
+          {
+            "text": "Modernize my business"
+          },
+          {
+            "text": "Tell me about your digital transformation services"
+          },
+          {
+            "text": "What is digital transformation?"
+          }
+        ]
+      },
+      {
+        "intent": "action_34978_intent_43783",
+        "examples": [
+          {
+            "text": "About Katalix"
+          },
+          {
+            "text": "About Katalix Solutions"
+          },
+          {
+            "text": "About your company"
+          },
+          {
+            "text": "Tell me about your company"
+          }
+        ]
+      },
+      {
+        "intent": "action_37991_intent_13052",
+        "examples": [
+          {
+            "text": "Speciality of Katalix Solutions"
+          },
+          {
+            "text": "Uniqueness of Katalix Solutions"
+          },
+          {
+            "text": "Why Katalix Solutions?"
+          }
+        ]
+      },
+      {
+        "intent": "action_44560_intent_14495",
+        "examples": [
+          {
+            "text": "Contract-based hiring"
+          },
+          {
+            "text": "Do you offer IT staff augmentation?"
+          },
+          {
+            "text": "Do you provide tech talent?"
+          },
+          {
+            "text": "Flexible tech resources"
+          },
+          {
+            "text": "Hire developers or engineers"
+          },
+          {
+            "text": "IT staffing solutions"
+          },
+          {
+            "text": "On-demand developer support"
+          },
+          {
+            "text": "Staff augmentation at Katalix"
+          },
+          {
+            "text": "staffing services"
+          },
+          {
+            "text": "Tell me about your staffing services"
+          },
+          {
+            "text": "Temporary IT staffing"
+          }
+        ]
+      },
+      {
+        "intent": "action_45275_intent_20473",
+        "examples": [
+          {
+            "text": "About Services"
+          },
+          {
+            "text": "Do you provide AI/ML services?"
+          },
+          {
+            "text": "List your services"
+          },
+          {
+            "text": "Tell me about your services"
+          },
+          {
+            "text": "What are your offerings?"
+          },
+          {
+            "text": "What can Katalix do?"
+          },
+          {
+            "text": "What does your company provide?"
+          },
+          {
+            "text": "What domains do you work in?"
+          },
+          {
+            "text": "What do you provide?"
+          },
+          {
+            "text": "What services do you offer?"
+          }
+        ]
+      },
+      {
+        "intent": "action_47088_intent_30066",
+        "examples": [
+          {
+            "text": "Cloud consulting at Katalix"
+          },
+          {
+            "text": "Cloud migration support"
+          },
+          {
+            "text": "Cloud modernization"
+          },
+          {
+            "text": "Cloud security and architecture"
+          },
+          {
+            "text": "cloud solutions"
+          },
+          {
+            "text": "Cloud transformation"
+          },
+          {
+            "text": "Do you offer cloud services?"
+          },
+          {
+            "text": "Tell me about your cloud solutions"
+          },
+          {
+            "text": "What cloud platforms do you work with?"
+          }
+        ]
+      },
+      {
+        "intent": "action_7890_intent_47399",
+        "examples": [
+          {
+            "text": "CEO"
+          },
+          {
+            "text": "Company details"
+          },
+          {
+            "text": "Employees"
+          },
+          {
+            "text": "Management Details"
+          },
+          {
+            "text": "Manager"
+          },
+          {
+            "text": "Team details"
+          }
+        ]
+      },
+      {
+        "intent": "fallback_connect_to_agent",
+        "examples": [
+          {
+            "text": "Agent help"
+          },
+          {
+            "text": "Call agent"
+          },
+          {
+            "text": "Can I connect to an agent?"
+          },
+          {
+            "text": "I would like to speak to a human"
+          },
+          {
+            "text": "I would like to speak to someone"
+          }
+        ],
+        "description": "Please transfer me to an agent"
+      }
+    ],
+    "entities": [
+      {
+        "entity": "danger_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "entity_16840",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "AI/ML Consulting",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Cloud Solutions",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Digital Transformation",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Enterprise Product Engineering",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "IT Staff Augmentation",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Not this time",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_28421",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_2896",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_6458",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "1",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "2",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "3",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Not this time",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "profane_words",
+        "values": [],
+        "fuzzy_match": false
+      },
+      {
+        "entity": "sys-yes-no",
+        "values": []
+      }
+    ],
+    "metadata": {
+      "skill": {
+        "counts": {
+          "actions": 17,
+          "intents": 14,
+          "entities": 7,
+          "data_types": 0,
+          "collections": 0,
+          "global_variables": 0
+        }
+      },
+      "api_version": {
+        "major_version": "v2",
+        "minor_version": "2018-11-08"
+      }
+    },
+    "variables": [],
+    "data_types": [],
+    "collections": [],
+    "counterexamples": [],
+    "system_settings": {
+      "variable": {
+        "format": {
+          "time": {
+            "pattern": "short"
+          },
+          "currency": {
+            "fraction_digits": 2
+          }
+        }
+      },
+      "off_topic": {
+        "enabled": true
+      },
+      "auto_learn": {
+        "apply": true
+      },
+      "topic_switch": {
+        "enabled": true,
+        "messages": {
+          "enable_confirmation": true,
+          "confirmation_failure": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "I'm sorry, I did not catch that, please confirm."
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              }
+            ]
+          },
+          "confirmation_request": {
+            "generic": [
+              {
+                "values": [
+                  {
+                    "text_expression": {
+                      "concat": [
+                        {
+                          "scalar": "Do you want to continue with the previous topic: "
+                        },
+                        {
+                          "system_variable": "digressed_from"
+                        },
+                        {
+                          "scalar": "?"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "response_type": "text",
+                "selection_policy": "sequential"
+              },
+              {
+                "options": [
+                  {
+                    "label": "Yes",
+                    "value": {
+                      "input": {
+                        "text": "Yes"
+                      }
+                    }
+                  },
+                  {
+                    "label": "No",
+                    "value": {
+                      "input": {
+                        "text": "No"
+                      }
+                    }
+                  }
+                ],
+                "response_type": "option",
+                "repeat_on_reprompt": true
+              }
+            ]
+          }
+        },
+        "max_tries": 3
+      },
+      "generative_ai": {
+        "hap_filter": {
+          "output": {
+            "enabled": true
+          }
+        }
+      },
+      "disambiguation": {
+        "prompt": "Did you mean:",
+        "enabled": true,
+        "randomize": true,
+        "max_suggestions": 5,
+        "suggestion_text_policy": "title",
+        "none_of_the_above_prompt": "None of the above",
+        "use_connect_to_support_prompt": "Connect to support",
+        "single_answer_clarification_prompt": "Something else"
+      },
+      "search_routing": {
+        "target": "conversational_search"
+      },
+      "spelling_auto_correct": true
+    },
+    "learning_opt_out": false
+  },
+  "description": "created for assistant fbf98302-e0b6-46ea-9379-454d71172aee",
+  "assistant_id": "5db27794-c913-40e8-a97c-ac98964ced61",
+  "workspace_id": "0c63d764-f5b0-4bf2-b1a8-d0feb00ae044",
+  "dialog_settings": {},
+  "next_snapshot_version": "1",
+  "environment_id": "718c9572-f400-4614-bbaf-90217c4909ea"
+}
